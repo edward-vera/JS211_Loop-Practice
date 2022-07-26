@@ -94,9 +94,7 @@ const malePerson = arrayOfPersons.filter(
 console.log(malePerson);
 
 // Create a function that returns true if the value of birthDate is before Jan 1, 1990.
-const bDayBefore1990 = arrayOfPersons.filter(person => {
-  return person.birthDate.slice(-4) < 199;
-});
+const bDayBefore1990 = arrayOfPersons.every((person) => person.birthDate < 1990);
 console.log(bDayBefore1990 < 1990);
 // ^^^this is returning true but I know I did it wrong^^^
 
@@ -106,3 +104,24 @@ const bDayBeforeJan = arrayOfPersons.filter(person => {
   return person.birthDate.slice(-4) < 1990;
 });
 console.log(bDayBeforeJan);
+
+
+// Pt. 2
+
+
+// use .find() to find the first Male
+const firstMale = arrayOfPersons => {
+  const findFirstMale = arrayOfPersons.find((item) => {
+    return item.gender === "male";
+  })
+  console.log(findFirstMale);
+};
+firstMale(arrayOfPersons);
+
+
+// use .findIndex() to find the person born in November
+const bornInNovember = arrayOfPersons => {
+  const novemberBirth = arrayOfPersons.findIndex((item) => item.birthDate.charAt(0) === "N");
+    console.log(novemberBirth);
+  };
+bornInNovember(arrayOfPersons);
